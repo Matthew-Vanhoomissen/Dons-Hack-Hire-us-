@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cphq4ge7xfrg6"]
+
+[ext_resource type="PackedScene" uid="uid://c53xbkjrh48c" path="res://shark/scene.gltf" id="1_k5fei"]
+
+[node name="Sketchfab_Scene" unique_id=1047101792 instance=ExtResource("1_k5fei")]
+
+[node name="Skeleton3D" parent="Sketchfab_model/90ec6fbb173a4afc8c5a48659a14ea94_fbx/Object_2/RootNode/Armature/Object_12" parent_id_path=PackedInt32Array(519550960) index="0" unique_id=1955192046]
+bones/1/rotation = Quaternion(-0.007935093, 3.637979e-12, 3.9278378e-10, 0.9999686)
+bones/3/rotation = Quaternion(-0.06582724, -0.0038711708, -0.033726923, 0.9972534)
+bones/4/rotation = Quaternion(-0.13149072, -0.0041003274, 0.048894055, 0.99010235)
+bones/5/rotation = Quaternion(0.02163599, -0.011336499, 0.05769298, 0.9980355)
+bones/6/rotation = Quaternion(0.08562596, -0.008705635, 0.10077511, 0.9911796)
+bones/20/rotation = Quaternion(-0.26131433, 0.11966626, -0.4618372, 0.83910745)
+bones/21/rotation = Quaternion(0.13429709, -7.9822016e-08, 2.6081416e-08, 0.99094117)
+bones/23/position = Vector3(-9.2121475e-09, -0.31222075, -1.1686118)
+bones/25/rotation = Quaternion(-0.26131433, -0.119666226, 0.46183705, 0.8391074)
+bones/26/rotation = Quaternion(0.13429712, 8.779889e-08, -5.1819487e-08, 0.9909411)
+bones/28/rotation = Quaternion(-0.010169404, 0.010721279, 0.99813336, 0.059257574)
+bones/29/rotation = Quaternion(-0.12970328, -4.3292326e-07, -9.4315084e-08, 0.99155295)
+
+[node name="Jaw_020" parent="Sketchfab_model/90ec6fbb173a4afc8c5a48659a14ea94_fbx/Object_2/RootNode/Armature/Object_12/Skeleton3D" index="0" unique_id=1020879722]
+transform = Transform3D(-0.9927703, -0.10962851, -0.04887778, 0.12003009, -0.9069417, -0.40381277, -5.9881095e-05, -0.4067908, 0.9138454, 0.024065489, -2.2824569, 0.0030531287)
+
+[node name="Head_019" parent="Sketchfab_model/90ec6fbb173a4afc8c5a48659a14ea94_fbx/Object_2/RootNode/Armature/Object_12/Skeleton3D" index="1" unique_id=751190414]
+transform = Transform3D(-0.9927703, -0.11851201, -0.019035988, 0.12003016, -0.98029375, -0.15694673, -6.0765073e-05, -0.15804899, 0.9877311, 5.6944836e-09, -2.4812403, 0.53474104)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1697230556]
+autoplay = &"Armature|ArmatureAction"

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b4v0vhop24g0b"]
+
+[ext_resource type="Script" uid="uid://bjqq0hh2e40yk" path="res://Scripts/player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://deypt0dat7067" path="res://barbarian.tscn" id="2_i3pqv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_onrkg"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1277806474]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=350263765]
+transform = Transform3D(1.3125813, 0, 0, 0, 2.6411781, 0, 0, 0, 1, 0, 1.3296413, 0)
+shape = SubResource("BoxShape3D_onrkg")
+
+[node name="Barbarian" parent="." unique_id=578607201 instance=ExtResource("2_i3pqv")]
+
+[node name="Skeleton3D" parent="Barbarian/Rig_Medium" parent_id_path=PackedInt32Array(578607201, 1145889389) index="0" unique_id=92475886]
+bones/5/scale = Vector3(1.0000002, 0.9999999, 0.99999994)
+bones/6/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
+bones/7/scale = Vector3(1, 0.99999994, 0.99999994)
+bones/8/scale = Vector3(0.99999994, 1, 0.99999994)
+bones/10/rotation = Quaternion(-0.6182439, 0.08072865, 0.61801153, 0.47887278)
+bones/11/scale = Vector3(1.0000002, 0.9999999, 0.99999994)
+bones/12/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
+bones/13/scale = Vector3(1, 0.99999994, 0.99999994)
+bones/15/rotation = Quaternion(0.9927243, -0.003953806, 0.04276561, 0.11248982)
+bones/15/scale = Vector3(0.9999999, 0.99999976, 1.0000008)
+bones/16/rotation = Quaternion(0.2954667, 6.2797426e-08, -2.0384442e-07, 0.95535314)
+bones/16/scale = Vector3(1, 1.0000005, 1.0000001)
+bones/17/rotation = Quaternion(-0.5400721, 4.1242718e-05, 0.0009099837, 0.8416183)
+bones/17/scale = Vector3(1, 1.0000008, 0.99999875)
+bones/18/rotation = Quaternion(-2.2034567e-06, 0.9202539, -0.391322, 5.6286615e-07)
+bones/18/scale = Vector3(1, 0.9999977, 1.0000024)
+bones/20/scale = Vector3(1, 1.0000005, 1.0000001)
+bones/21/scale = Vector3(1, 1.0000008, 0.99999875)
+bones/22/scale = Vector3(1, 0.9999966, 1.0000037)
+
+[editable path="Barbarian"]

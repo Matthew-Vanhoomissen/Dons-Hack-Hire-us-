@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c2vxt2wkmrl10" path="res://scripts/garbage_can.gd" id="1_dxr07"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxr07"]
+albedo_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+
 [node name="Garbage Can" type="Node3D" unique_id=173467272 groups=["trash_can"]]
 script = ExtResource("1_dxr07")
 
@@ -12,6 +15,7 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40000004, 0)
 height = 1.2
 sides = 30
+material = SubResource("StandardMaterial3D_dxr07")
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1791064052]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.60000014, 0)

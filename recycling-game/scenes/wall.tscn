@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://deof13xjbsgip"]
+
+[ext_resource type="ArrayMesh" uid="uid://12s8ltmm6x1n" path="res://addons/OBJ format/structure-wall.obj" id="1_wykyb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ktk7"]
+size = Vector3(1, 3, 0.1)
+
+[node name="Wall" type="StaticBody3D" unique_id=1563421599]
+
+[node name="StructureWall" type="MeshInstance3D" parent="." unique_id=1896499796]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("1_wykyb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1652821503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.55000013)
+shape = SubResource("BoxShape3D_2ktk7")

@@ -1,3 +1,239 @@
 [gd_scene format=3 uid="uid://d3gydgw33osht"]
 
+[ext_resource type="PackedScene" uid="uid://bmdkc5jtfxkql" path="res://boat_lowpoly/scene.gltf" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://brq2iur3jfa0k" path="res://recycling-game/scenes/conveyor.tscn" id="1_7mycd"]
+[ext_resource type="Script" uid="uid://c2to7306vm8re" path="res://Water.gd" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://pgx460d8gidt" path="res://cube.gd" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://assets/Buoyancy-in-Godot-4-master/assets/kloppenheim_06_puresky_4k.exr" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://deypt0dat7067" path="res://hackathon-26/barbarian.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://cphq4ge7xfrg6" path="res://shark/shark2.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://c4khvcgxqlnkc" path="res://trash_collection/scene.gltf" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://dm21sccw6gi5h" path="res://recycling-game/scenes/spawner.tscn" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://q68uc1f11yxp" path="res://sea_turtle/scene.gltf" id="10_4c57u"]
+
+[sub_resource type="Shader" id="Shader_1bvp3"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.6.1.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_always, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform ivec2 albedo_texture_size;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D texture_refraction : filter_linear_mipmap, repeat_enable;
+uniform float refraction : hint_range(-1.0, 1.0, 0.001);
+uniform vec4 refraction_texture_channel;
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_linear_mipmap;
+uniform sampler2D depth_texture : hint_depth_texture, repeat_disable, filter_nearest;
+
+uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
+uniform float normal_scale : hint_range(-16.0, 16.0);
+varying vec3 uv1_triplanar_pos;
+
+uniform float uv1_blend_sharpness : hint_range(0.0, 150.0, 0.001);
+varying vec3 uv1_power_normal;
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	vec3 normal = MODEL_NORMAL_MATRIX * NORMAL;
+
+	TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.y);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.z);
+	TANGENT = inverse(MODEL_NORMAL_MATRIX) * normalize(TANGENT);
+
+	BINORMAL = vec3(0.0, 1.0, 0.0) * abs(normal.x);
+	BINORMAL += vec3(0.0, 0.0, -1.0) * abs(normal.y);
+	BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
+	BINORMAL = inverse(MODEL_NORMAL_MATRIX) * normalize(BINORMAL);
+
+	// UV1 Triplanar: Enabled (with World Triplanar)
+	uv1_power_normal = pow(abs(normal), vec3(uv1_blend_sharpness));
+	uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset + TIME * 0.4;
+	uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
+	
+	uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+}
+
+vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
+	vec4 samp = vec4(0.0);
+	samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
+	samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
+	samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
+	return samp;
+}
+
+void fragment() {
+	vec4 albedo_tex = triplanar_texture(texture_albedo, uv1_power_normal, uv1_triplanar_pos);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(triplanar_texture(texture_metallic, uv1_power_normal, uv1_triplanar_pos), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(triplanar_texture(texture_roughness, uv1_power_normal, uv1_triplanar_pos), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+
+	// Normal Map: Enabled
+	NORMAL_MAP = triplanar_texture(texture_normal, uv1_power_normal, uv1_triplanar_pos).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+
+	// Refraction: Enabled (with normal map texture)
+	vec3 unpacked_normal = NORMAL_MAP;
+	unpacked_normal.xy = unpacked_normal.xy * 2.0 - 1.0;
+	unpacked_normal.z = sqrt(max(0.0, 1.0 - dot(unpacked_normal.xy, unpacked_normal.xy)));
+	vec3 ref_normal = normalize(mix(
+			NORMAL,
+			TANGENT * unpacked_normal.x + BINORMAL * unpacked_normal.y + NORMAL * unpacked_normal.z,
+			NORMAL_MAP_DEPTH));
+	vec2 ref_ofs = SCREEN_UV - ref_normal.xy * dot(triplanar_texture(texture_refraction, uv1_power_normal, uv1_triplanar_pos), refraction_texture_channel) * refraction;
+
+	float ref_amount = 1.0 - albedo.a * albedo_tex.a;
+
+	float refraction_depth_tex = textureLod(depth_texture, ref_ofs, 0.0).r;
+	vec4 ndc = OUTPUT_IS_SRGB ? vec4(vec3(SCREEN_UV, refraction_depth_tex) * 2.0 - 1.0, 1.0) : vec4(SCREEN_UV * 2.0 - 1.0, refraction_depth_tex, 1.0);
+	vec4 refraction_view_pos = INV_PROJECTION_MATRIX * ndc;
+	refraction_view_pos.xyz /= refraction_view_pos.w;
+
+	// If the depth buffer is lower then the model's Z position, use the refracted UV, otherwise use the normal screen UV.
+	// At low depth differences, decrease refraction intensity to avoid sudden discontinuities.
+	EMISSION += textureLod(screen_texture, mix(SCREEN_UV, ref_ofs, smoothstep(0.0, 1.0, VERTEX.z - refraction_view_pos.z)), ROUGHNESS * 8.0).rgb * ref_amount * EXPOSURE;
+	ALBEDO *= 1.0 - ref_amount;
+	// Force transparency on the material (required for refraction).
+	ALPHA = 1.0;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lquwl"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7mycd"]
+noise = SubResource("FastNoiseLite_lquwl")
+seamless = true
+as_normal_map = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
+render_priority = 0
+shader = SubResource("Shader_1bvp3")
+shader_parameter/albedo = Color(0.047058824, 0.31764707, 0.46666667, 0.5058824)
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/texture_refraction = SubResource("NoiseTexture2D_7mycd")
+shader_parameter/refraction = 0.05
+shader_parameter/refraction_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_7mycd")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(0.004, 0.004, 0.004)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5vw27"]
+material = SubResource("ShaderMaterial_272bh")
+size = Vector2(500, 500)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4c57u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
+albedo_texture = ExtResource("5_7mycd")
+
+[sub_resource type="BoxMesh" id="BoxMesh_7mycd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_272bh"]
+
 [node name="Main" type="Node3D" unique_id=1240942521]
+
+[node name="Conveyor" parent="." unique_id=146857764 instance=ExtResource("1_7mycd")]
+transform = Transform3D(-209.8702, 0, 0, 0, 55.408905, 0, 0, 0, 28.758566, -664.97046, 31.16156, -123.23898)
+
+[node name="Sketchfab_Scene" parent="." unique_id=2117877051 instance=ExtResource("1_0xm2m")]
+transform = Transform3D(-0.52634865, 0.0020743536, -0.33004165, -2.0469354e-11, 0.2712543, 0.014222624, 0.24447924, 0.0044659544, -0.7105592, -16.242744, -12.934273, -11.7080345)
+
+[node name="Water" type="MeshInstance3D" parent="." unique_id=54914995]
+transform = Transform3D(5.8938193, 0, 0, 0, 0.93287027, 0, 0, 0, 18.265352, -0.6043396, -10.509827, -1.0316162)
+mesh = SubResource("PlaneMesh_5vw27")
+script = ExtResource("2_1bvp3")
+
+[node name="Cube" type="RigidBody3D" parent="." unique_id=407459211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 208.47974)
+script = ExtResource("2_h2yge")
+float_force = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube" unique_id=753654403]
+shape = SubResource("BoxShape3D_4c57u")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=164538720]
+transform = Transform3D(0.83298886, -0.55328983, 0, 0.55328983, 0.83298886, 0, 0, 0, 1, 0, 87.29617, 260.0442)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2111789916]
+transform = Transform3D(1.3887855, 0, 0, 0, -527.6536, 0, 0, 0, 6607.813, 682.482, 245.41977, 112.905426)
+material_override = SubResource("StandardMaterial3D_272bh")
+mesh = SubResource("BoxMesh_7mycd")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=211703691]
+transform = Transform3D(1, 0, 0, 0, 398.94498, 0, 0, 0, 2294.0288, -705.8085, 189.04144, 109.32059)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("BoxMesh_272bh")
+
+[node name="Barbarian" parent="." unique_id=578607201 instance=ExtResource("6_272bh")]
+transform = Transform3D(-29.040884, -0.8157941, -27.40369, -0.78194785, 44.24855, 0.062426694, 18.590424, 0.58679056, -42.805824, -48.20852, 19.285011, -14.838394)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=681293245]
+transform = Transform3D(0.011857742, 0.5460434, -0.837673, -0.0077287857, 0.8377569, 0.54598874, 0.99989986, 1.396844e-09, 0.0141541585, -473.95245, 333.37134, 0)
+
+[node name="Sketchfab_Scene3" parent="." unique_id=1047101792 instance=ExtResource("7_272bh")]
+transform = Transform3D(-0.3397106, 0, -0.11484796, 0, 0.2749409, 0, -0.0922082, 0, 0.4231193, 333.24747, -15.349945, -612.4623)
+
+[node name="Sketchfab_Scene2" parent="." unique_id=601371797 instance=ExtResource("8_5vw27")]
+transform = Transform3D(-0.213589, 0, 0, 0, 0.098383226, 0, 0, 0, 0.45795, -0.56614685, -9.037476, -254.24164)
+
+[node name="Conveyors" type="Node3D" parent="." unique_id=1901136052]
+transform = Transform3D(22.70443, 0, 0, 0, 2.9886413, 0, 0, 0, 26.397018, -570.54535, 8.027466, 0)
+
+[node name="Conveyor3" parent="Conveyors" unique_id=335838298 instance=ExtResource("1_7mycd")]
+transform = Transform3D(12.311262, 0, 0, 0, 2.5069711, 0, 0, 0, 4.959715, 38.00575, -8.394651, -8.00264)
+constant_linear_velocity = Vector3(2, 0, 2)
+
+[node name="Conveyor2" parent="Conveyors" unique_id=9469570 instance=ExtResource("1_7mycd")]
+transform = Transform3D(14.6609125, 0, 0, 0, 2.653164, 0, 0, 0, 4.6982994, 13.295261, -10.298882, -1.8517522)
+constant_linear_velocity = Vector3(2, 0, 0)
+
+[node name="Conveyor" parent="Conveyors" unique_id=1829177333 instance=ExtResource("1_7mycd")]
+transform = Transform3D(-5.2453663e-07, 0, 3.9158263, 0, 1, 0, 11.999997, 0, 1.7116615e-07, 25.134434, -9.082445, 13.660162)
+constant_linear_velocity = Vector3(0, 0, 2)
+
+[node name="Spawner" parent="." unique_id=1444740780 instance=ExtResource("9_kek77")]
+transform = Transform3D(0.07478982, 0, 0, 0, 1.4862652, 0, 0, 0, -0.6713016, 211.04684, 53.497803, -134.1572)
+
+[node name="Sketchfab_Scene4" parent="." unique_id=58541086 instance=ExtResource("7_272bh")]
+transform = Transform3D(-0.30345127, 0, 0.2221898, 0, 0.2749409, 0, 0.17838995, 0, 0.37795725, -358.52774, -15.349945, -295.4208)
+
+[node name="Sketchfab_Scene5" parent="." unique_id=1932688957 instance=ExtResource("10_4c57u")]
+transform = Transform3D(-0.9716373, 0, -2.4420717, 0, 3.5983455, 0, 1.2206845, 0, -1.9438345, -91.29847, -11.591721, -347.54376)
+
+[node name="Spawner2" parent="." unique_id=1213224318 instance=ExtResource("9_kek77")]
+transform = Transform3D(0.07478982, 0, 0, 0, 1.4862652, 0, 0, 0, -0.6713016, -46.29312, 53.497803, 226.82028)
+
+[node name="Spawner3" parent="." unique_id=750025908 instance=ExtResource("9_kek77")]
+transform = Transform3D(0.07478982, 0, 0, 0, 1.4862652, 0, 0, 0, -0.6713016, -241.26865, 53.497803, -62.931488)

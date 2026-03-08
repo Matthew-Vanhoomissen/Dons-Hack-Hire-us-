@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://dc51jmaimf5qd"]
+
+[ext_resource type="PackedScene" uid="uid://btihde6i2xdup" path="res://assests/Assets1/beach/scene.gltf" id="1_usm5i"]
+[ext_resource type="PackedScene" uid="uid://c652p23qgykeg" path="res://assests/Assets/fbx/road_straight_crossing.fbx" id="2_k5j2i"]
+[ext_resource type="PackedScene" uid="uid://c3pb0k1e6ysbn" path="res://assests/Assets/fbx/road_straight.fbx" id="3_s8vrs"]
+[ext_resource type="PackedScene" uid="uid://cp2mdrdk6v58t" path="res://assests/Assets/fbx/building_F.fbx" id="8_skqbh"]
+[ext_resource type="PackedScene" uid="uid://cbtky4w3bfpr4" path="res://assests/Assets/fbx/building_E.fbx" id="9_c0hqr"]
+[ext_resource type="PackedScene" uid="uid://i4ul27pht30l" path="res://assests/Assets/fbx/building_A.fbx" id="10_aie6l"]
+[ext_resource type="PackedScene" uid="uid://oqfjjvlpc587" path="res://assests/Assets/fbx/building_H.fbx" id="11_svdjo"]
+[ext_resource type="PackedScene" uid="uid://br22rq05bfx3g" path="res://assests/Assets/fbx/building_B.fbx" id="12_8n4r8"]
+[ext_resource type="PackedScene" uid="uid://cii3jbmvr6soy" path="res://assests/Assets/fbx/base.fbx" id="12_prv5w"]
+[ext_resource type="PackedScene" uid="uid://32djtgsove4g" path="res://assests/Assets/fbx/building_D.fbx" id="13_g4nal"]
+[ext_resource type="PackedScene" uid="uid://b4v0vhop24g0b" path="res://player.tscn" id="13_k5j2i"]
+[ext_resource type="PackedScene" uid="uid://0sm1u0rupryk" path="res://assests/Assets/fbx/building_G.fbx" id="13_n001k"]
+[ext_resource type="PackedScene" uid="uid://xc0nal20bn28" path="res://assests/Assets/gltf/car_taxi.gltf" id="13_usm5i"]
+[ext_resource type="PackedScene" uid="uid://brq2iur3jfa0k" path="res://Scenes/conveyor.tscn" id="14_28dce"]
+[ext_resource type="Theme" uid="uid://0vx2whsc5y8c" path="res://Scenes/CustomTheme.tres" id="15_28dce"]
+[ext_resource type="PackedScene" uid="uid://c6vxcwp5xtwk8" path="res://Scenes/conveyor1.tscn" id="16_4b2er"]
+[ext_resource type="Script" uid="uid://dcxe2gjfwi6ob" path="res://Scenes/canvas_layer.gd" id="16_5lj6h"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8n4r8"]
+load_path = "res://.godot/imported/Material_7_baseColor.png-c1e852bebad068f28667dbde4dbee8ed.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a78n8"]
+albedo_texture = SubResource("CompressedTexture2D_8n4r8")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8n4r8"]
+size = Vector3(0.5391846, 1, 1)
+
+[node name="Sketchfab_Scene" unique_id=148213442 instance=ExtResource("1_usm5i")]
+
+[node name="Object_2" parent="Sketchfab_model/Playa_obj_cleaner_materialmerger_gles" parent_id_path=PackedInt32Array(1983616282) index="0" unique_id=655354420]
+transform = Transform3D(2.0350747, 0, 0, 0, 2.0350747, 0, 0, 0, 2.0350747, 0, 0, 0)
+
+[node name="Object_3" parent="Sketchfab_model/Playa_obj_cleaner_materialmerger_gles" parent_id_path=PackedInt32Array(1983616282) index="1" unique_id=1820658004]
+transform = Transform3D(2.0429509, 0.003565625, 0, -0.0035656255, 2.0429506, 0, 0, 0, 2.0429542, -0.011051178, -0.008234501, 4.7683716e-07)
+
+[node name="Object_4" parent="Sketchfab_model/Playa_obj_cleaner_materialmerger_gles" parent_id_path=PackedInt32Array(1983616282) index="2" unique_id=537793115]
+transform = Transform3D(2.037755, 0, 0, 0, 2.037755, 0, 0, 0, 2.037755, 0, 0.01, 0)
+
+[node name="road_straight_crossing" parent="." index="1" unique_id=589958739 instance=ExtResource("2_k5j2i")]
+transform = Transform3D(6.2958393, 0, 0, 0, 6.2958393, 0, 0, 0, 13.180812, -28.224888, 0.22135544, -6.569628)
+
+[node name="road_straight" parent="." index="2" unique_id=121603512 instance=ExtResource("3_s8vrs")]
+transform = Transform3D(6.296, 0, 0, 0, 6.296, 0, 0, 0, 13.181149, -28.22, 0.21089263, 19.620092)
+
+[node name="road_straight2" parent="." index="3" unique_id=1290240943 instance=ExtResource("3_s8vrs")]
+transform = Transform3D(6.3531, 0, -0.10973271, 0, 6.296, 0, 0.05289218, 0, 13.180453, -28.22, 0.21089263, -32.831123)
+
+[node name="road_straight3" parent="." index="4" unique_id=38398878 instance=ExtResource("3_s8vrs")]
+transform = Transform3D(6.296, 0, 0, 0, 6.296, 0, 0, 0, 13.181149, -28.22, 0.21089263, 43.864403)
+
+[node name="road_straight4" parent="." index="5" unique_id=524700437 instance=ExtResource("3_s8vrs")]
+transform = Transform3D(6.296, 0, 0, 0, 6.296, 0, 0, 0, 13.181149, -28.22, 0.21089263, -58.825413)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="6" unique_id=1499654902]
+transform = Transform3D(3.255549, 0, 0, 0, 1.7968327, 0, 0, 0, 4.222642, 1.7756014, -0.04926563, 50.521965)
+size = Vector3(14.529663, 0.8793335, 12.604492)
+material = SubResource("StandardMaterial3D_a78n8")
+
+[node name="road_straight5" parent="." index="7" unique_id=1884377787 instance=ExtResource("3_s8vrs")]
+transform = Transform3D(6.296, 0, 0, 0, 6.296, 0, 0, 0, 13.181149, -28.22, 0.21089263, 70.19339)
+
+[node name="road_straight6" parent="." index="8" unique_id=1794697157 instance=ExtResource("3_s8vrs")]
+transform = Transform3D(6.296, 0, 0, 0, 6.296, 0, 0, 0, 13.181149, -28.22, 0.21089263, 96.51866)
+
+[node name="Camera3D" type="Camera3D" parent="." index="9" unique_id=1465181765]
+transform = Transform3D(-4.320748e-08, -0.8554879, 0.5178228, -5.810156e-09, 0.5178228, 0.8554879, -1, 3.3954844e-08, -2.7344337e-08, 13.707859, 31.861, 1.6939654)
+fov = 73.7
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="10" unique_id=2133239563]
+transform = Transform3D(1, 0, 0, 0, 0.13152973, 0.99131227, 0, -0.99131227, 0.13152973, 0, 25.326532, -7)
+
+[node name="road_straight7" parent="." index="11" unique_id=2007761809 instance=ExtResource("3_s8vrs")]
+transform = Transform3D(6.3531, 0, -0.10973271, 0, 6.296, 0, 0.05289218, 0, 13.180453, -28.22, 0.21089263, -84.73265)
+
+[node name="road_straight8" parent="." index="12" unique_id=1173309586 instance=ExtResource("3_s8vrs")]
+transform = Transform3D(6.296, 0, 0, 0, 6.296, 0, 0, 0, 13.181149, -28.22, 0.21089263, -110.726944)
+
+[node name="building_F" parent="." index="13" unique_id=1816840399 instance=ExtResource("8_skqbh")]
+transform = Transform3D(-3.2035646e-07, 0, 7.3289013, 0, 7.3289013, 0, -7.3289013, 0, -3.2035646e-07, -41.34382, -0.012900829, 27.728146)
+
+[node name="building_E" parent="." index="14" unique_id=1349151067 instance=ExtResource("9_c0hqr")]
+transform = Transform3D(-3.2035646e-07, 0, 7.3289013, 0, 7.3289013, 0, -7.3289013, 0, -3.2035646e-07, -41.982903, 0, -38.315968)
+
+[node name="building_A" parent="." index="15" unique_id=1071230353 instance=ExtResource("10_aie6l")]
+transform = Transform3D(-3.059797e-07, 0, 7, 0, 7, 0, -7, 0, -3.059797e-07, -41.628716, 0, 41.633648)
+
+[node name="building_H" parent="." index="16" unique_id=2080281783 instance=ExtResource("11_svdjo")]
+transform = Transform3D(-3.059797e-07, 0, 7, 0, 7, 0, -7, 0, -3.059797e-07, -41.982903, 0, -21.117489)
+
+[node name="base" parent="." index="17" unique_id=704673805 instance=ExtResource("12_prv5w")]
+transform = Transform3D(31.305658, 0, 0, 0, 11.275848, 0, 0, 0, 105.81808, -65.59902, -0.09512377, 3.3506966)
+
+[node name="building_G" parent="." index="18" unique_id=99226374 instance=ExtResource("13_n001k")]
+transform = Transform3D(-3.059797e-07, 0, 7, 0, 7, 0, -7, 0, -3.059797e-07, -41.982903, 0, 10.924095)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="19" unique_id=1718978395]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1017253979]
+transform = Transform3D(163, 0, 0, 0, 1, 0, 0, 0, 130, -19.067923, 1.8496727, -12.729836)
+shape = SubResource("BoxShape3D_8n4r8")
+debug_color = Color(0, 0.7, 0.3733333, 0.41960785)
+
+[node name="car_taxi2" parent="." index="20" unique_id=909310512 instance=ExtResource("13_usm5i")]
+transform = Transform3D(6.123133, 0, 0, 0, 6.123133, 0, 0, 0, 6.123133, -30.355831, 1.2738919, -44.60016)
+
+[node name="Entire Floor" type="CSGBox3D" parent="." index="21" unique_id=2089575403]
+transform = Transform3D(2.034718, 0, 0, 0, 2.034718, 0, 0, 0, 2.034718, -39.74, -10, -14.348)
+visible = false
+size = Vector3(66.47836, 0.8793335, 69.309814)
+material = SubResource("StandardMaterial3D_a78n8")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." index="22" unique_id=1214868548]
+transform = Transform3D(3.255549, 0, 0, 0, 2.034718, 0, 0, 0, 4.540979, 1.7756014, -0.04926563, -49.794273)
+size = Vector3(14.529663, 0.8793335, 12.604492)
+material = SubResource("StandardMaterial3D_a78n8")
+
+[node name="Player" parent="." index="23" unique_id=1277806474 instance=ExtResource("13_k5j2i")]
+transform = Transform3D(1.788732e-08, 0, -1.493, 0, 1.551, 0, 1.5, 0, 1.7803847e-08, 0.44272614, 1.3945565, 0.43929148)
+
+[node name="Skeleton3D" parent="Player/Barbarian/Rig_Medium" parent_id_path=PackedInt32Array(1277806474, 578607201, 1145889389) index="0" unique_id=92475886]
+bones/1/position = Vector3(0, 0.38438657, 0)
+bones/1/rotation = Quaternion(0.0044045267, 0.043157328, 0.00019027037, 0.9990586)
+bones/2/rotation = Quaternion(0.012552037, 1.8304596e-09, 0.0010864763, 0.99992067)
+bones/3/rotation = Quaternion(-0.006100804, 3.9318326e-09, -0.0005280717, 0.9999813)
+bones/4/position = Vector3(0.21200737, 0.13413215, 8.216504e-08)
+bones/4/rotation = Quaternion(-0.539443, -0.10249155, -0.76305974, 0.340935)
+bones/4/scale = Vector3(0.9999993, 0.99999905, 0.9999998)
+bones/5/rotation = Quaternion(-4.460338e-10, -6.030002e-08, -0.37852454, 0.9255913)
+bones/5/scale = Vector3(1.0000004, 0.9999998, 1)
+bones/6/rotation = Quaternion(1.514567e-08, -7.3584383e-09, 0.0266581, 0.99964464)
+bones/6/scale = Vector3(1.0000001, 1, 1)
+bones/7/rotation = Quaternion(-0.22030503, -0.3433086, 0.17831232, 0.8954383)
+bones/7/scale = Vector3(0.99999976, 1.0000001, 1.0000004)
+bones/8/position = Vector3(5.138494e-10, 0.096125126, -0.057500005)
+bones/8/rotation = Quaternion(0.0024805511, 0.0024805504, -0.6979391, 0.71614844)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(-0.015511608, -0.031337965, -0.0008539348, 0.9993882)
+bones/9/scale = Vector3(0.99999994, 1, 1)
+bones/10/position = Vector3(-0.21200736, 0.13413227, 8.62731e-08)
+bones/10/rotation = Quaternion(-0.56586933, 0.032680295, 0.7276668, 0.3862964)
+bones/10/scale = Vector3(0.9999992, 0.9999988, 0.9999998)
+bones/11/rotation = Quaternion(2.2645084e-08, 2.7731028e-08, 0.39105502, 0.92036736)
+bones/11/scale = Vector3(1.0000004, 0.99999976, 1.0000001)
+bones/12/rotation = Quaternion(2.249753e-10, 6.8246844e-09, -0.026658092, 0.99964464)
+bones/12/scale = Vector3(0.99999994, 0.99999994, 1)
+bones/13/rotation = Quaternion(-0.21069036, 0.37955067, -0.1314024, 0.8912263)
+bones/13/scale = Vector3(0.9999995, 0.99999994, 1.0000005)
+bones/14/position = Vector3(-1.5415026e-08, 0.096125185, -0.057500005)
+bones/14/rotation = Quaternion(0.0024805511, -0.0024805504, 0.6979391, 0.71614844)
+bones/15/rotation = Quaternion(0.9893697, 0.05761987, 0.07139623, 0.11282829)
+bones/15/scale = Vector3(0.9999999, 0.9999997, 1.0000008)
+bones/16/rotation = Quaternion(0.33050814, 6.5678186e-08, -2.185914e-07, 0.94380313)
+bones/16/scale = Vector3(1.0000004, 0.99999994, 1.0000001)
+bones/17/rotation = Quaternion(-0.5674184, -0.11224193, 0.04828793, 0.8143134)
+bones/17/scale = Vector3(1.0000004, 1.0000007, 0.9999993)
+bones/18/rotation = Quaternion(-9.939941e-07, 0.9202346, -0.39136732, 2.7694955e-07)
+bones/18/scale = Vector3(1.0000001, 0.9999975, 1.0000027)
+bones/19/rotation = Quaternion(0.995141, -0.031092102, 0.030995898, 0.0881296)
+bones/20/rotation = Quaternion(0.34101462, -6.559087e-08, 2.3714843e-07, 0.940058)
+bones/20/scale = Vector3(0.99999994, 0.99999976, 0.99999994)
+bones/21/rotation = Quaternion(-0.59586996, 0.11393185, -0.014466882, 0.79482657)
+bones/21/scale = Vector3(0.99999976, 1.0000006, 0.9999992)
+bones/22/scale = Vector3(1.0000002, 0.9999979, 1.0000024)
+
+[node name="building_B" parent="." index="24" unique_id=693002430 instance=ExtResource("12_8n4r8")]
+transform = Transform3D(-3.059797e-07, 0, 7, 0, 7, 0, -7, 0, -3.059797e-07, -41.982903, 0, -52.952343)
+
+[node name="building_E2" parent="." index="25" unique_id=2067837265 instance=ExtResource("9_c0hqr")]
+transform = Transform3D(-3.2035646e-07, 0, 7.3289013, 0, 7.3289013, 0, -7.3289013, 0, -3.2035646e-07, -41.982903, 0, 54.477802)
+
+[node name="building_D" parent="." index="26" unique_id=1889239272 instance=ExtResource("13_g4nal")]
+transform = Transform3D(-3.059797e-07, 0, 7, 0, 7, 0, -7, 0, -3.059797e-07, -41.982903, 0, -67.577354)
+
+[node name="Conveyor" parent="." index="27" unique_id=146857764 instance=ExtResource("16_4b2er")]
+transform = Transform3D(6.9800663, 0.037706908, 0, -0.5278967, 0.49857616, 0, 0, 0, 1, 20.068436, -0.56170934, 21.792433)
+
+[node name="Conveyor2" parent="." index="28" unique_id=354997418 instance=ExtResource("14_28dce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="29" unique_id=511037134]
+script = ExtResource("16_5lj6h")
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer" index="0" unique_id=901010533]
+anchors_preset = -1
+anchor_right = 0.17500001
+anchor_bottom = 0.143
+offset_left = 16.0
+offset_top = 1960.0
+offset_right = 15.999985
+offset_bottom = 1960.04
+size_flags_vertical = 8
+theme = ExtResource("15_28dce")
+theme_override_font_sizes/font_size = 60
+text = "0:00"
+
+[editable path="Player"]
+[editable path="Player/Barbarian"]

@@ -1,7 +1,17 @@
 extends Node3D
 
+@onready var animation_player1 = $CSGCylinder3D/AnimationPlayer
+@onready var animation_player2 = $CSGCylinder3D2/AnimationPlayer
+
 var bodies = []
 var bags_burned = 0;
+
+func open_door():
+	animation_player1.play("open door")
+
+func close_door():
+	animation_player1.play("close door")
+
 func _on_area_3d_body_entered(body):
 	bodies.append(body)
 	
@@ -10,6 +20,7 @@ func _on_area_3d_body_shape_exited(body):
 	bodies.erase(body)
 
 func incinerate(open):
+	animation_player2.play("incinerator on")
 	bags_burned += 1
 	if open:
 		var direction = global_transform.basis.z

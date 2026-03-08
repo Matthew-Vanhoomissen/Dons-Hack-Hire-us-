@@ -5,6 +5,7 @@ extends RigidBody3D
 @export var water_angular_drag := 0.05
 
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var water = get_node('/root/Main/Water')
 
 const water_height := 0.0
 var submerged := false
@@ -14,19 +15,12 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
-func _physics_process(delta):
-	submerged = false
-	var depth = water_height - global_position.y
-	if depth > 0:
-		submerged = true
-		apply_central_force(Vector3.UP * float_force * gravity * depth)
+func _physics_process(_delta):
+	pass
 		
 		
 func _integrate_forces(state: PhysicsDirectBodyState3D):
-	if submerged:
-		# Using lerp or multiplying by a smaller decimal helps stop the 'sinking' speed
-		state.linear_velocity *= 0.9  # Much stronger drag for water
-		state.angular_velocity *= 0.9
+	pass

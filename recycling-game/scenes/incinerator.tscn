@@ -2,9 +2,165 @@
 
 [ext_resource type="Script" uid="uid://blc636wi0kg5l" path="res://scripts/incinerator.gd" id="1_wx3yc"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wx3yc"]
+albedo_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+metallic = 1.0
+
+[sub_resource type="Animation" id="Animation_wx3yc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5707964, -1.3962634, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.4, 0.6749999, 0.8995)]
+}
+
+[sub_resource type="Animation" id="Animation_llbkp"]
+resource_name = "close door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5707964, -1.3962634, 0), Vector3(-1.5707964, -0.69813174, 0), Vector3(-1.5707964, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.4, 0.6749999, 0.89949995), Vector3(-0.099999994, 0.6749999, 0.7994999), Vector3(0, 0.7, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_cbo5i"]
+resource_name = "open door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5707964, 1.4901163e-08, 0), Vector3(-1.5707964, -0.6981317, 0), Vector3(-1.5707964, -1.3962634, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.7, 0.499), Vector3(-0.1, 0.675, 0.799), Vector3(-0.4, 0.675, 0.899)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cbo5i"]
+_data = {
+&"RESET": SubResource("Animation_wx3yc"),
+&"close door": SubResource("Animation_llbkp"),
+&"open door": SubResource("Animation_cbo5i")
+}
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wx3yc"]
 height = 1.0
 radius = 0.7
+
+[sub_resource type="Animation" id="Animation_vrafl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.69813156)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.77, 0.9, -0.1)]
+}
+
+[sub_resource type="Animation" id="Animation_hmunv"]
+resource_name = "incinerator on"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 1, 1.25, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.69813156), Vector3(0, 0, -1.5707961), Vector3(0, 0, -2.6179938), Vector3(0, 0, -2.6179938), Vector3(0, 0, -1.5707964), Vector3(0, 0, -0.6981317)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 1, 1.25, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.77, 0.9, -0.1), Vector3(0.77, 0.79999995, -0.1), Vector3(0.71, 0.7, -0.1), Vector3(0.71, 0.7, -0.1), Vector3(0.77, 0.8, -0.1), Vector3(0.77, 0.9, -0.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_llbkp"]
+_data = {
+&"RESET": SubResource("Animation_vrafl"),
+&"incinerator on": SubResource("Animation_hmunv")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cbo5i"]
+albedo_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
 
 [node name="Incinerator" type="Node3D" unique_id=1175991371 groups=["Incinerator"]]
 script = ExtResource("1_wx3yc")
@@ -15,23 +171,42 @@ use_collision = true
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=264689154 groups=["Incinerator"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -0.100000024)
 size = Vector3(1.2, 1.4, 1.2)
+material = SubResource("StandardMaterial3D_wx3yc")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=815198776 groups=["Incinerator"]]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.7, 0.087500036)
+[node name="divot" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=815198776 groups=["Incinerator"]]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.7, 0.088)
 operation = 2
 height = 0.875
 sides = 20
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=345336095]
-transform = Transform3D(0.17364818, 0.9848077, -1.2914194e-07, 0, 1.3113416e-07, 1, 0.9848077, -0.17364818, 2.2771209e-08, -0.4, 0.6749999, 0.8995)
+transform = Transform3D(0.17364821, 0.9848076, 4.304731e-08, 0, -4.3711385e-08, 1, 0.9848076, -0.17364821, -7.590405e-09, -0.4, 0.6749999, 0.8995)
 height = 0.001
 sides = 20
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGCylinder3D" unique_id=1651650689]
+libraries/ = SubResource("AnimationLibrary_cbo5i")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1518852235]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=111131028]
 transform = Transform3D(1, 0, 0, 0, -5.9604645e-08, -1, 0, 1, -5.9604645e-08, 0, 0.6999999, 0.9)
 shape = SubResource("CylinderShape3D_wx3yc")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=2083960601]
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=128754580]
+transform = Transform3D(0.7660447, 0.6427876, 0, -0.6427876, 0.7660447, 0, 0, 0, 1, 0.77, 0.9, -0.1)
+radius = 0.034
+height = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGCylinder3D2" unique_id=2009904008]
+libraries/ = SubResource("AnimationLibrary_llbkp")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1093103520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65000004, 0.8, -0.09999998)
+size = Vector3(0.1, 0.4, 0.2)
+material = SubResource("StandardMaterial3D_cbo5i")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_shape_exited" from="Area3D" to="." method="_on_area_3d_body_shape_exited"]

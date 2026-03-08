@@ -41,7 +41,6 @@ func next_wave():
 	wave += 1
 	if wave >= 4:
 		timer.stop()
-		print("Game over!")
 		return
 	print("Wave ", wave," is starting")
 	min_spawn_time *= .8

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dtk5d13xjrami"
+path="res://.godot/imported/shield_badge_color.obj-0e5c933be907793e119a02af4773e8eb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/shield_badge_color.obj-0e5c933be907793e119a02af4773e8eb.mesh"]
+
+source_file="res://hackathon-26/addons/KayKit_Adventurers_2.0_FREE/Assets/obj/shield_badge_color.obj"
+dest_files=["res://.godot/imported/shield_badge_color.obj-0e5c933be907793e119a02af4773e8eb.mesh", "res://.godot/imported/shield_badge_color.obj-0e5c933be907793e119a02af4773e8eb.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -4,9 +4,7 @@ var bodies = []
 var compost_done = 0
 
 func _on_area_3d_body_entered(body):
-	print(body)
 	if body is RigidBody3D:
-		print("Body added")
 		bodies.append(body)
 
 func _on_area_3d_body_exited(body):

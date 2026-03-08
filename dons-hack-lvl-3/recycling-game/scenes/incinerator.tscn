@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ccmtur2gal4hn"]
+
+[ext_resource type="Script" uid="uid://blc636wi0kg5l" path="res://scripts/incinerator.gd" id="1_wx3yc"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wx3yc"]
+height = 1.0
+radius = 0.7
+
+[node name="Incinerator" type="Node3D" unique_id=1175991371 groups=["Incinerator"]]
+script = ExtResource("1_wx3yc")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=496581628 groups=["Incinerator"]]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=264689154 groups=["Incinerator"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -0.100000024)
+size = Vector3(1.2, 1.4, 1.2)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=815198776 groups=["Incinerator"]]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.7, 0.087500036)
+operation = 2
+height = 0.875
+sides = 20
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=345336095]
+transform = Transform3D(0.17364818, 0.9848077, -1.2914194e-07, 0, 1.3113416e-07, 1, 0.9848077, -0.17364818, 2.2771209e-08, -0.4, 0.6749999, 0.8995)
+height = 0.001
+sides = 20
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1518852235]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=111131028]
+transform = Transform3D(1, 0, 0, 0, -5.9604645e-08, -1, 0, 1, -5.9604645e-08, 0, 0.6999999, 0.9)
+shape = SubResource("CylinderShape3D_wx3yc")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_shape_exited" from="Area3D" to="." method="_on_area_3d_body_shape_exited"]

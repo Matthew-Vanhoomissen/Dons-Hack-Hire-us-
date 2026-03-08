@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c4p3oemc0vj7j"]
+
+[ext_resource type="ArrayMesh" uid="uid://bousdk7blaa3i" path="res://addons/OBJ format/structure-doorway-wide.obj" id="1_spokl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_quwfp"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jf717"]
+size = Vector3(2.3, 5.7000003, 0.2)
+
+[node name="DoorWall" type="StaticBody3D" unique_id=326107112]
+
+[node name="StructureDoorwayWide" type="MeshInstance3D" parent="." unique_id=1200606132]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 2, 0, -1.509958e-07, 0, -1, 0, 0, -0.3)
+mesh = ExtResource("1_spokl")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1484154162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.940697e-08, 1.55, -1.3000001)
+size = Vector3(1.8000001, 3.3, 1)
+material = SubResource("StandardMaterial3D_quwfp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1428759945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999982, 3.15, -0.6999999)
+shape = SubResource("BoxShape3D_jf717")

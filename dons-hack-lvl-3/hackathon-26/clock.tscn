@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://54xcudn51gdo"]
+
+[ext_resource type="Texture2D" uid="uid://c37tkn6v7quxb" path="res://addons/clock.jpg" id="1_venu5"]
+
+[node name="Clock" type="Sprite2D" unique_id=2074165223]
+position = Vector2(398, 1795)
+texture = ExtResource("1_venu5")

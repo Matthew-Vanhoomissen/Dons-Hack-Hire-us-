@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bmaey0qqrlaw0"]
+
+[ext_resource type="PackedScene" uid="uid://c4khvcgxqlnkc" path="res://trash_collection/scene.gltf" id="1_jldj4"]
+
+[node name="Sketchfab_Scene" unique_id=601371797 instance=ExtResource("1_jldj4")]
+
+[node name="Toilet Paper_01 - Default_0" parent="Sketchfab_model/ababb63aea95462f9634b2b2c47d0512_fbx/RootNode/Toilet Paper" parent_id_path=PackedInt32Array(654102722) index="0" unique_id=29001186]
+transform = Transform3D(0.9999999, 2.9802322e-08, 0, -2.9802322e-08, 0.9999999, 0, 0, 0, 0.9999999, 57.890396, -48.57583, 0)
+
+[node name="Packet_01 - Default_0" parent="Sketchfab_model/ababb63aea95462f9634b2b2c47d0512_fbx/RootNode/Packet" parent_id_path=PackedInt32Array(152541483) index="0" unique_id=1613738178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -227.67879, 1.0110971e-13)
+
+[node name="Grounds & Shells_01 - Default_0" parent="Sketchfab_model/ababb63aea95462f9634b2b2c47d0512_fbx/RootNode/Grounds & Shells/Object_10" parent_id_path=PackedInt32Array(1716355502) index="0" unique_id=1210602199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -258.435, 0, 0)

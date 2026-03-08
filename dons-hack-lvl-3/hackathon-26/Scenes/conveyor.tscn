@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://brq2iur3jfa0k"]
+
+[ext_resource type="Script" uid="uid://bgl08e80mbu26" path="res://scripts/conveyor.gd" id="1_kqxj7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y326v"]
+vertex_color_is_srgb = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfjcm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_osxxb"]
+material = SubResource("StandardMaterial3D_mfjcm")
+size = Vector3(1, 0.3, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_54w8r"]
+size = Vector3(1, 0.3, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ruvuk"]
+size = Vector3(1, 0.1, 1.2)
+
+[node name="Conveyor" type="StaticBody3D" unique_id=146857764]
+script = ExtResource("1_kqxj7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1715427681]
+material_override = SubResource("StandardMaterial3D_y326v")
+mesh = SubResource("BoxMesh_osxxb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1964442420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1175871e-08)
+shape = SubResource("BoxShape3D_54w8r")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1981615823]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1780560403]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("BoxShape3D_ruvuk")
