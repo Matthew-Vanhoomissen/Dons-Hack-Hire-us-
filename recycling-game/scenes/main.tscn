@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dkxkh270spo2s" path="res://scripts/main.gd" id="1_choun"]
 [ext_resource type="PackedScene" uid="uid://dc3abppurn60n" path="res://scenes/garbage_can.tscn" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://jl204sl4hr61" path="res://scenes/floor.tscn" id="2_choun"]
 [ext_resource type="PackedScene" uid="uid://brq2iur3jfa0k" path="res://scenes/conveyor.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ccmtur2gal4hn" path="res://scenes/incinerator.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://d25s1l1xofpr1" path="res://scenes/trash_bag.tscn" id="6_tefeu"]
@@ -48,10 +49,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 2.75, 0.35)
 use_collision = true
 size = Vector3(0.5, 5, 14.7)
 
-[node name="Floor" type="CSGBox3D" parent="Building" unique_id=1462952221]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.4499998)
-use_collision = true
-size = Vector3(12.5, 0.6, 20.5)
+[node name="Floor2" parent="Building" unique_id=138865183 instance=ExtResource("2_choun")]
+transform = Transform3D(7, 0, 0, 0, 5, 0, 0, 0, 12, 0.6, 0.3, -4.0999994)
 
 [node name="ProtoController" parent="." unique_id=1965801076 instance=ExtResource("1_o5qli")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.7, 0.3, -3.3000002)
