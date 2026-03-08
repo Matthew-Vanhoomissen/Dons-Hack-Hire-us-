@@ -2,8 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cegj7hm73t6je" path="res://scripts/compost_area.gd" id="1_p4sgy"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4sgy"]
+albedo_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ykv7d"]
 size = Vector3(4.5, 1, 4.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykv7d"]
+albedo_color = Color(0.39607844, 0.2627451, 0.12941177, 1)
 
 [node name="Compost Area" type="Node3D" unique_id=146587922]
 script = ExtResource("1_p4sgy")
@@ -13,6 +19,7 @@ use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=420628102]
 size = Vector3(5, 1, 5)
+material = SubResource("StandardMaterial3D_p4sgy")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1284468593]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0.099999964, 0)
@@ -23,6 +30,11 @@ size = Vector3(5, 1, 5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=669102565]
 shape = SubResource("BoxShape3D_ykv7d")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1801885160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+size = Vector3(4.5, 0.5, 4.5)
+material = SubResource("StandardMaterial3D_ykv7d")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

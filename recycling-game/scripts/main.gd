@@ -13,28 +13,34 @@ const max_trucks = 3
 const truck_stay_time = 15
 
 func _ready():
-	timer.start(10)
+	timer.start(20)
 
 func call_truck():
 	if truck_num >= max_trucks:
-		print("Game over!")
-		print("Compost done: " + str(compost.get_compost()))
-		print("Bags burned: " + str(incinerator.get_bags()))
-		print("Your final score is: " + str(total_points))
+		finish_game()
+		timer.stop()
 		return
 	truck_num += 1
 	print("Truck ", truck_num," has arrived!")
 	truck_there = true
-	timer.start(truck_stay_time)
+	if truck_num == max_trucks:
+		timer.start(30)
+	else:
+		timer.start(truck_stay_time)
 
 func _on_timer_timeout():
 	if truck_there:
 		var collected = recycling.clear_items()
-		total_points += collected
+		total_points += collected * 10
 		
-		print("You scored " + str(collected) + " points")
 		print("Now the truck is leaving")
 		truck_there = false
 		timer.start(25)
 	else:
 		call_truck()
+
+func finish_game():
+	print("Game over!")
+	total_points += compost.get_compost() * 5
+	total_points += incinerator.get_bags() * 10
+	print("Your final score is: " + str(total_points))

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dece20o7j67qj"]
+
+[ext_resource type="PackedScene" uid="uid://cttwh5mj1ymss" path="res://addons/assets/BolsaN2.fbx" id="1_3s8sc"]
+
+[node name="BolsaN2" unique_id=443798718 instance=ExtResource("1_3s8sc")]
