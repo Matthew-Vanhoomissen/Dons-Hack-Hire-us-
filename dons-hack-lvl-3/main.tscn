@@ -171,7 +171,7 @@ transform = Transform3D(-209.8702, 0, 0, 0, 55.408905, 0, 0, 0, 28.758566, -664.
 transform = Transform3D(-0.52634865, 0.0020743536, -0.33004165, -2.0469354e-11, 0.2712543, 0.014222624, 0.24447924, 0.0044659544, -0.7105592, -16.242744, -12.934273, -11.7080345)
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=54914995]
-transform = Transform3D(5.8938193, 0, 0, 0, 0.93287027, 0, 0, 0, 18.265352, 0, -9.660767, -1.9463959)
+transform = Transform3D(5.8938193, 0, 0, 0, 0.93287027, 0, 0, 0, 18.265352, -0.6043396, -10.509827, -1.0316162)
 mesh = SubResource("PlaneMesh_5vw27")
 script = ExtResource("2_1bvp3")
 
@@ -212,22 +212,28 @@ transform = Transform3D(-0.213589, 0, 0, 0, 0.098383226, 0, 0, 0, 0.45795, -0.56
 transform = Transform3D(22.70443, 0, 0, 0, 2.9886413, 0, 0, 0, 26.397018, -570.54535, 8.027466, 0)
 
 [node name="Conveyor3" parent="Conveyors" unique_id=335838298 instance=ExtResource("1_7mycd")]
-transform = Transform3D(12.311262, 0, 0, 0, 2.5069711, 0, 0, 0, 4.959715, 46.784554, -6.3399453, -8.00264)
+transform = Transform3D(12.311262, 0, 0, 0, 2.5069711, 0, 0, 0, 4.959715, 38.00575, -8.394651, -8.00264)
 constant_linear_velocity = Vector3(2, 0, 2)
 
 [node name="Conveyor2" parent="Conveyors" unique_id=9469570 instance=ExtResource("1_7mycd")]
-transform = Transform3D(14.6609125, 0, 0, 0, 2.653164, 0, 0, 0, 4.6982994, 33.953873, -6.754004, -6.5444145)
+transform = Transform3D(14.6609125, 0, 0, 0, 2.653164, 0, 0, 0, 4.6982994, 13.295261, -10.298882, -1.8517522)
 constant_linear_velocity = Vector3(2, 0, 0)
 
 [node name="Conveyor" parent="Conveyors" unique_id=1829177333 instance=ExtResource("1_7mycd")]
-transform = Transform3D(-5.245366e-07, 0, 3.9158263, 0, 1, 0, 11.999997, 0, 1.7116615e-07, 51.339493, -9.817427, -16.303385)
+transform = Transform3D(-5.2453663e-07, 0, 3.9158263, 0, 1, 0, 11.999997, 0, 1.7116615e-07, 25.134434, -9.082445, 13.660162)
 constant_linear_velocity = Vector3(0, 0, 2)
 
 [node name="Spawner" parent="." unique_id=1444740780 instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1289.5089, -2466.115, 286.5664)
+transform = Transform3D(0.07478982, 0, 0, 0, 1.4862652, 0, 0, 0, -0.6713016, 211.04684, 53.497803, -134.1572)
 
 [node name="Sketchfab_Scene4" parent="." unique_id=58541086 instance=ExtResource("7_272bh")]
 transform = Transform3D(-0.30345127, 0, 0.2221898, 0, 0.2749409, 0, 0.17838995, 0, 0.37795725, -358.52774, -15.349945, -295.4208)
 
 [node name="Sketchfab_Scene5" parent="." unique_id=1932688957 instance=ExtResource("10_4c57u")]
 transform = Transform3D(-0.9716373, 0, -2.4420717, 0, 3.5983455, 0, 1.2206845, 0, -1.9438345, -91.29847, -11.591721, -347.54376)
+
+[node name="Spawner2" parent="." unique_id=1213224318 instance=ExtResource("9_kek77")]
+transform = Transform3D(0.07478982, 0, 0, 0, 1.4862652, 0, 0, 0, -0.6713016, -46.29312, 53.497803, 226.82028)
+
+[node name="Spawner3" parent="." unique_id=750025908 instance=ExtResource("9_kek77")]
+transform = Transform3D(0.07478982, 0, 0, 0, 1.4862652, 0, 0, 0, -0.6713016, -241.26865, 53.497803, -62.931488)

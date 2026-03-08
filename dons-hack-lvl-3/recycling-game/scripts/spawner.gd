@@ -6,7 +6,7 @@ var compost = preload("res://recycling-game/scenes/compost.tscn")
 var recycling = preload("res://recycling-game/scenes/recycling.tscn")
 
 @export var min_spawn_time = 4
-@export var max_spawn_time = 6
+@export var max_spawn_time = 15
 
 var items_remaining = 0
 var wave = 1
@@ -52,7 +52,8 @@ func next_wave():
 		start_wave(13, 15)
 
 func spawn_random_item():
-	var num = randi_range(1, 3)
+	print("Spawning item.")
+	var num = randi_range(1, 10)
 	var item
 	
 	if num == 1:
@@ -64,3 +65,4 @@ func spawn_random_item():
 	
 	get_tree().current_scene.add_child(item)
 	item.global_position = spawn_point.global_position
+	item.scale = Vector3(50,50,50)
