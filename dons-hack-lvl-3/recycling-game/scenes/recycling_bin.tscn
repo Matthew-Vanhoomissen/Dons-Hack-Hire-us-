@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://u3pxshhejqbq"]
+
+[ext_resource type="Script" uid="uid://qmwr0cccy7oo" path="res://scripts/recycling_bin.gd" id="1_wvpr6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dn5r8"]
+size = Vector3(1, 1, 1.5)
+
+[node name="Recycling Bin" type="Node3D" unique_id=1150361247]
+script = ExtResource("1_wvpr6")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=636516999]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1309742447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.050000012, -0.19999999, 0.35000002)
+size = Vector3(1.1, 0.6, 1.7)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1010173007]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.07000002, -0.099999994, 0.35000002)
+operation = 2
+size = Vector3(1.2, 0.6, 1.7)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=915694834]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1187257697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.35)
+shape = SubResource("BoxShape3D_dn5r8")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

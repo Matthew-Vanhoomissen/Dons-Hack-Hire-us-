@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://54jxei7pvyfc"
+path="res://.godot/imported/conveyor-bars-stripe-side.obj-21e1ed012946d531a8ff80fe16402dea.mesh"
+
+[deps]
+
+files=["res://.godot/imported/conveyor-bars-stripe-side.obj-21e1ed012946d531a8ff80fe16402dea.mesh"]
+
+source_file="res://recycling-game/addons/OBJ format/conveyor-bars-stripe-side.obj"
+dest_files=["res://.godot/imported/conveyor-bars-stripe-side.obj-21e1ed012946d531a8ff80fe16402dea.mesh", "res://.godot/imported/conveyor-bars-stripe-side.obj-21e1ed012946d531a8ff80fe16402dea.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

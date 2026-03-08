@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://deypt0dat7067" path="res://hackathon-26/barbarian.tscn" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://cphq4ge7xfrg6" path="res://shark/shark2.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://c4khvcgxqlnkc" path="res://trash_collection/scene.gltf" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://dm21sccw6gi5h" path="res://recycling-game/scenes/spawner.tscn" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://q68uc1f11yxp" path="res://sea_turtle/scene.gltf" id="10_4c57u"]
 
 [sub_resource type="Shader" id="Shader_1bvp3"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.6.1.stable's StandardMaterial3D.
@@ -201,7 +203,31 @@ transform = Transform3D(-29.040884, -0.8157941, -27.40369, -0.78194785, 44.24855
 transform = Transform3D(0.011857742, 0.5460434, -0.837673, -0.0077287857, 0.8377569, 0.54598874, 0.99989986, 1.396844e-09, 0.0141541585, -473.95245, 333.37134, 0)
 
 [node name="Sketchfab_Scene3" parent="." unique_id=1047101792 instance=ExtResource("7_272bh")]
-transform = Transform3D(-0.35200232, 0, 0, 0, 0.2749409, 0, 0, 0, 0.438429, 333.24747, -17.479034, -234.49171)
+transform = Transform3D(-0.3397106, 0, -0.11484796, 0, 0.2749409, 0, -0.0922082, 0, 0.4231193, 333.24747, -15.349945, -612.4623)
 
 [node name="Sketchfab_Scene2" parent="." unique_id=601371797 instance=ExtResource("8_5vw27")]
 transform = Transform3D(-0.213589, 0, 0, 0, 0.098383226, 0, 0, 0, 0.45795, -0.56614685, -9.037476, -254.24164)
+
+[node name="Conveyors" type="Node3D" parent="." unique_id=1901136052]
+transform = Transform3D(22.70443, 0, 0, 0, 2.9886413, 0, 0, 0, 26.397018, -570.54535, 8.027466, 0)
+
+[node name="Conveyor3" parent="Conveyors" unique_id=335838298 instance=ExtResource("1_7mycd")]
+transform = Transform3D(12.311262, 0, 0, 0, 2.5069711, 0, 0, 0, 4.959715, 46.784554, -6.3399453, -8.00264)
+constant_linear_velocity = Vector3(2, 0, 2)
+
+[node name="Conveyor2" parent="Conveyors" unique_id=9469570 instance=ExtResource("1_7mycd")]
+transform = Transform3D(14.6609125, 0, 0, 0, 2.653164, 0, 0, 0, 4.6982994, 33.953873, -6.754004, -6.5444145)
+constant_linear_velocity = Vector3(2, 0, 0)
+
+[node name="Conveyor" parent="Conveyors" unique_id=1829177333 instance=ExtResource("1_7mycd")]
+transform = Transform3D(-5.245366e-07, 0, 3.9158263, 0, 1, 0, 11.999997, 0, 1.7116615e-07, 51.339493, -9.817427, -16.303385)
+constant_linear_velocity = Vector3(0, 0, 2)
+
+[node name="Spawner" parent="." unique_id=1444740780 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1289.5089, -2466.115, 286.5664)
+
+[node name="Sketchfab_Scene4" parent="." unique_id=58541086 instance=ExtResource("7_272bh")]
+transform = Transform3D(-0.30345127, 0, 0.2221898, 0, 0.2749409, 0, 0.17838995, 0, 0.37795725, -358.52774, -15.349945, -295.4208)
+
+[node name="Sketchfab_Scene5" parent="." unique_id=1932688957 instance=ExtResource("10_4c57u")]
+transform = Transform3D(-0.9716373, 0, -2.4420717, 0, 3.5983455, 0, 1.2206845, 0, -1.9438345, -91.29847, -11.591721, -347.54376)

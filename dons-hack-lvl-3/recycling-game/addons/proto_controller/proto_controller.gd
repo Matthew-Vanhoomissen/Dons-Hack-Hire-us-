@@ -18,7 +18,7 @@ extends CharacterBody3D
 
 @export_group("Speeds")
 ## Look around rotation speed.
-@export var look_speed : float = 0.002
+@export var look_speed : float = 0.005
 ## Normal speed.
 @export var base_speed : float = 7.0
 ## Speed of jump.
@@ -59,10 +59,13 @@ var freeflying : bool = false
 @onready var hold_point = $Marker3D
 
 var held_item = null
+var detected_object = null
 
 var throw_speed = 10
 
 var trash_can_capacity = 0
+var incinerator_full = false
+var incinerator_door_open = true
 
 
 func _ready() -> void:
@@ -89,27 +92,59 @@ func _unhandled_input(event: InputEvent) -> void:
 			disable_freefly()
 
 func _physics_process(delta: float) -> void:
+	# For printing actions
+	if raycast.is_colliding():
+		var obj = raycast.get_collider()
+		
+		if obj != detected_object:
+			detected_object = obj
+			display_action(obj)
+	else:
+		detected_object = null
 	# For picking up items
 	if Input.is_action_just_pressed("interact"):
+		
 		if held_item == null:
+			if raycast.is_colliding():
+				var item = raycast.get_collider()
+				if item.get_parent().is_in_group("trash_can") && trash_can_capacity >= 2:
+					var new_bag = item.get_parent().interact()
+					trash_can_capacity = 0
+					print("Picked up trash bag! Current cap: " + str(trash_can_capacity))
+					if new_bag != null:
+						held_item = new_bag
+						held_item.freeze = true
+				elif item.get_parent().is_in_group("Incinerator") || item.is_in_group("Incinerator"):
+					if incinerator_full:
+						incinerator_full = false
+						print("Has the method: " + str(item.get_parent().has_method("incinerate")))
+						item.get_parent().incinerate(incinerator_door_open)
+
 			try_pickup()
 		else:
 			if raycast.is_colliding():
 				var item = raycast.get_collider()
-				print(item)
 				if item.is_in_group("trash_can") or item.get_parent().is_in_group("trash_can"):
 					if(trash_can_capacity >= 2):
 						print("Trash can too full")
 					else:
 						throw_away()
+				elif item.get_parent().is_in_group("Incinerator"):
+					put_in()
 				else:
 					drop_object()
 					pass
 			else:
 				drop_object()
 
-	if Input.is_action_just_pressed("throw") && held_item != null:
-		throw_object()
+	if Input.is_action_just_pressed("throw"):
+		if held_item != null:
+			throw_object()
+		else:
+			if raycast.is_colliding():
+				var obj = raycast.get_collider()
+				if obj.is_in_group("Incinerator") || obj.get_parent.is_in_group("Incinerator"):
+					toggle_door()
 	
 	if held_item != null:
 		held_item.global_position = hold_point.global_position
@@ -160,6 +195,8 @@ func try_pickup():
 		var obj = raycast.get_collider()
 		
 		if obj is RigidBody3D:
+			print("Press e to drop")
+			print("Press f to throw")
 			held_item = obj
 			obj.freeze = true
 
@@ -177,10 +214,41 @@ func throw_object():
 	held_item = null
 
 func throw_away():
-	trash_can_capacity += 1 
-	print("Trash thrown away. Current cap " + str(trash_can_capacity))
-	held_item.queue_free()
-	held_item = null
+	if(held_item.is_in_group("trash") || held_item.get_parent().is_in_group("trash")):
+		trash_can_capacity += 1 
+		print("Trash thrown away. Current cap " + str(trash_can_capacity))
+		held_item.queue_free()
+		held_item = null
+
+func put_in():
+	if !incinerator_full:
+		held_item.queue_free()
+		held_item = null
+		incinerator_full = true
+		print("Deposited trash bag")
+	else:
+		print("Incinerator full")
+
+func toggle_door():
+	if incinerator_door_open:
+		incinerator_door_open = false
+	else:
+		incinerator_door_open = true
+	print("Incinerator is now " + str(incinerator_door_open))
+
+func display_action(obj):
+	if held_item == null:
+		if obj.get_parent().is_in_group("trash"):
+			print("Press e to pick up")
+		elif obj.get_parent().is_in_group("trash_can") && trash_can_capacity >= 2:
+			print("Press e to remove bag")
+		elif (obj.get_parent().is_in_group("Incinerator") || obj.is_in_group("Incinerator")):
+			if incinerator_full:
+				print("Press e to use incerator")
+			if incinerator_door_open:
+				print("Press f to close door")
+			else:
+				print("Press f to open door")
 
 ## Rotate us to look around.
 ## Base of controller rotates around y (left/right). Head rotates around x (up/down).
