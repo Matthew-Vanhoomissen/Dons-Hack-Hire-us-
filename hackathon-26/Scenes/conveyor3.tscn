@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://buhvixll75sja"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xg6s8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfjcm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_osxxb"]
+material = SubResource("StandardMaterial3D_mfjcm")
+size = Vector3(1, 0.3, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_54w8r"]
+size = Vector3(1, 0.3, 1.2)
+
+[node name="ConveyorCG" type="StaticBody3D" unique_id=1770083552]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=373551144]
+transform = Transform3D(1, 0, 0, 0, 0.25725716, 0, 0, 0, 2.9026594, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_xg6s8")
+mesh = SubResource("BoxMesh_osxxb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1128331742]
+transform = Transform3D(1, 0, 0, 0, 0.25725716, 0, 0, 0, 2.9026594, 0, 0, 0)
+shape = SubResource("BoxShape3D_54w8r")
