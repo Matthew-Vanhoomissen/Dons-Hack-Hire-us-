@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dgr2uaachy552"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_82ykv"]
-size = Vector3(0.5, 0.4, 0.5)
+size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0yg0f"]
 resource_name = "lambert2"
@@ -81,10 +81,10 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 mass = 0.01
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1497714782]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.313226e-09, -0.049999997, 5.5879354e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.313226e-09, 4.656613e-09, 5.5879354e-08)
 shape = SubResource("BoxShape3D_82ykv")
 
 [node name="pCube1" type="MeshInstance3D" parent="." unique_id=1083634155]
-transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, -0.059499487, 0)
+transform = Transform3D(26, 0, 0, 0, 26, 0, 0, 0, 26, 0, -0.059499487, 0)
 mesh = SubResource("ArrayMesh_82ykv")
 surface_material_override/0 = SubResource("StandardMaterial3D_p18li")

@@ -3,8 +3,8 @@
 [ext_resource type="ArrayMesh" uid="uid://che0xx1wgm484" path="res://addons/assets/EmptyBottle.obj" id="1_sjcjh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_smo78"]
-height = 1.075
-radius = 0.2
+height = 0.69218755
+radius = 0.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjcjh"]
 albedo_color = Color(0.003921569, 0.5411765, 1, 1)
@@ -14,7 +14,7 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 mass = 0.01
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=622458924]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.55, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.531875, 0)
 shape = SubResource("CylinderShape3D_smo78")
 
 [node name="EmptyBottle" type="MeshInstance3D" parent="." unique_id=646157045]

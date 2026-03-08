@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Recycling Game"
-run/main_scene="uid://b8p1k2iedm3kv"
+run/main_scene="uid://1lby75ce4qwq"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
 
 [global_group]
 

@@ -5,6 +5,8 @@ extends Node3D
 @onready var incinerator = $"Incinerator"
 @onready var timer = $Timer
 
+@onready var message_label = $"CanvasLayer/Label2"
+
 var total_points = 0
 var truck_num = 0
 var truck_there = false
@@ -21,7 +23,7 @@ func call_truck():
 		timer.stop()
 		return
 	truck_num += 1
-	print("Truck ", truck_num," has arrived!")
+	print_words("Truck " + str(truck_num) + " has arrived!")
 	truck_there = true
 	if truck_num == max_trucks:
 		timer.start(30)
@@ -33,14 +35,19 @@ func _on_timer_timeout():
 		var collected = recycling.clear_items()
 		total_points += collected * 10
 		
-		print("Now the truck is leaving")
+		print_words("Now the truck is leaving")
 		truck_there = false
 		timer.start(25)
 	else:
 		call_truck()
 
 func finish_game():
-	print("Game over!")
 	total_points += compost.get_compost() * 5
 	total_points += incinerator.get_bags() * 10
-	print("Your final score is: " + str(total_points))
+	message_label.text = "Game over! \nYour final score is: "
+
+func print_words(text):
+	var label = message_label
+	label.text = text
+	await get_tree().create_timer(3.0).timeout
+	label.text = ""

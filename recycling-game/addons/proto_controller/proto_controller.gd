@@ -41,6 +41,10 @@ var move_speed : float = 0.0
 
 @onready var incinerator = $"../Incinerator"
 
+@onready var message_label1 = $"../CanvasLayer/Label"
+@onready var message_label2 = $"../CanvasLayer/Label2"
+@onready var message_label3 = $"../CanvasLayer/Label3"
+
 var held_item = null
 var detected_object = null
 
@@ -86,7 +90,7 @@ func _physics_process(delta: float) -> void:
 				if item.get_parent().is_in_group("trash_can") && trash_can_capacity >= 2:
 					var new_bag = item.get_parent().interact()
 					trash_can_capacity = 0
-					print("Picked up trash bag! Current cap: " + str(trash_can_capacity))
+					print_words(message_label2, "Picked up trash bag! Current cap: " + str(trash_can_capacity))
 					if new_bag != null:
 						held_item = new_bag
 						held_item.freeze = true
@@ -101,7 +105,7 @@ func _physics_process(delta: float) -> void:
 				var item = raycast.get_collider()
 				if item.is_in_group("trash_can") or item.get_parent().is_in_group("trash_can"):
 					if(trash_can_capacity >= 2):
-						print("Trash can too full")
+						print_words(message_label2, "Trash can too full")
 					else:
 						throw_away()
 				elif item.get_parent().is_in_group("Incinerator"):
@@ -160,8 +164,8 @@ func try_pickup():
 		var obj = raycast.get_collider()
 		
 		if obj is RigidBody3D:
-			print("Press e to drop")
-			print("Press f to throw")
+			print_words(message_label1, "Press e to drop")
+			print_words(message_label3, "Press f to throw")
 			held_item = obj
 			obj.freeze = true
 
@@ -181,7 +185,7 @@ func throw_object():
 func throw_away():
 	if(held_item.is_in_group("trash") || held_item.get_parent().is_in_group("trash")):
 		trash_can_capacity += 1 
-		print("Trash thrown away. Current cap " + str(trash_can_capacity))
+		print_words(message_label2, "Trash thrown away. Current cap " + str(trash_can_capacity))
 		held_item.queue_free()
 		held_item = null
 
@@ -191,11 +195,11 @@ func put_in():
 			held_item.queue_free()
 			held_item = null
 			incinerator_full = true
-			print("Deposited trash bag")
+			print_words(message_label2, "Deposited trash bag")
 		else:
-			print("Incinerator door closed!")
+			print_words(message_label2, "Incinerator door closed! Open the door")
 	else:
-		print("Incinerator full")
+		print_words(message_label2, "Incinerator full")
 
 func toggle_door():
 	if incinerator_door_open:
@@ -204,21 +208,26 @@ func toggle_door():
 	else:
 		incinerator.open_door()
 		incinerator_door_open = true
-	print("Incinerator is now " + str(incinerator_door_open))
 
 func display_action(obj):
 	if held_item == null:
-		if obj.get_parent().is_in_group("trash"):
-			print("Press e to pick up")
+		if obj is RigidBody3D || obj.get_parent() is RigidBody3D:
+			print_words(message_label1, "Press e to pick up")
 		elif obj.get_parent().is_in_group("trash_can") && trash_can_capacity >= 2:
-			print("Press e to remove bag")
+			print_words(message_label1, "Press e to remove bag")
 		elif (obj.get_parent().is_in_group("Incinerator") || obj.is_in_group("Incinerator")):
 			if incinerator_full:
-				print("Press e to use incerator")
+				print_words(message_label1, "Press e to use incerator")
 			if incinerator_door_open:
-				print("Press f to close door")
+				print_words(message_label3, "Press f to close door")
 			else:
-				print("Press f to open door")
+				print_words(message_label3, "Press f to open door")
+
+func print_words(label, text):
+	
+	label.text = text
+	await get_tree().create_timer(3.0).timeout
+	label.text = ""
 
 ## Rotate us to look around.
 ## Base of controller rotates around y (left/right). Head rotates around x (up/down).

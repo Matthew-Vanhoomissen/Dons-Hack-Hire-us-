@@ -8,6 +8,8 @@ var recycling = preload("res://scenes/recycling.tscn")
 @export var min_spawn_time = 4
 @export var max_spawn_time = 6
 
+@onready var message_label2 = $"../CanvasLayer/Label2"
+
 var items_remaining = 0
 var wave = 1
 @onready var timer = $Timer
@@ -15,7 +17,7 @@ var wave = 1
 
 func _ready():
 	randomize()
-	print("Wave 1 starting")
+	print_words("Wave 1 starting")
 	start_wave(5, 7)
 
 func start_wave(min_items, max_items):
@@ -42,7 +44,7 @@ func next_wave():
 	if wave >= 4:
 		timer.stop()
 		return
-	print("Wave ", wave," is starting")
+	print_words("Wave " + str(wave) + " is starting")
 	min_spawn_time *= .8
 	max_spawn_time *= .8
 	if wave == 2:
@@ -63,3 +65,9 @@ func spawn_random_item():
 	
 	get_tree().current_scene.add_child(item)
 	item.global_position = spawn_point.global_position
+
+func print_words(text):
+	var label = message_label2
+	label.text = text
+	await get_tree().create_timer(3.0).timeout
+	label.text = ""
