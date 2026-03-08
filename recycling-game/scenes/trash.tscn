@@ -6,7 +6,9 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2cq4d"]
 
-[node name="Trash" type="RigidBody3D" unique_id=1669149132]
+[node name="Trash" type="RigidBody3D" unique_id=1669149132 groups=["trash"]]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mass = 0.01
 script = ExtResource("1_3xixx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1638644]
