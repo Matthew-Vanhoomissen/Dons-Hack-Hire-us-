@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://b8p1k2iedm3kv"]
+
+[ext_resource type="Script" uid="uid://dkxkh270spo2s" path="res://recycling-game/scripts/main.gd" id="1_choun"]
+[ext_resource type="PackedScene" uid="uid://dc3abppurn60n" path="res://recycling-game/scenes/garbage_can.tscn" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://recycling-game/addons/proto_controller/proto_controller.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://jl204sl4hr61" path="res://recycling-game/scenes/floor.tscn" id="2_choun"]
+[ext_resource type="PackedScene" uid="uid://brq2iur3jfa0k" path="res://recycling-game/scenes/conveyor.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://ccmtur2gal4hn" path="res://recycling-game/scenes/incinerator.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://d25s1l1xofpr1" path="res://recycling-game/scenes/trash_bag.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dfcvsd814ocur" path="res://recycling-game/scenes/compost_area.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://u3pxshhejqbq" path="res://recycling-game/scenes/recycling_bin.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://dm21sccw6gi5h" path="res://recycling-game/scenes/spawner.tscn" id="10_ya4ey"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_choun"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ya4ey"]
+
+[node name="Main" type="Node3D" unique_id=1425532333]
+script = ExtResource("1_choun")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=960181578]
+transform = Transform3D(0.6427876, 0.66341406, -0.3830222, 4.1808466e-08, 0.5, 0.86602557, 0.7660447, -0.5566704, 0.32139373, -7.1, 10.2, 2.1)
+shadow_enabled = true
+
+[node name="Building" type="Node3D" parent="." unique_id=803325293]
+
+[node name="Loading Wall" type="CSGCombiner3D" parent="Building" unique_id=1662530597]
+use_collision = true
+
+[node name="Wall1" type="CSGBox3D" parent="Building/Loading Wall" unique_id=29951886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0500002, 2.75, -6.7500005)
+use_collision = true
+size = Vector3(8.5, 5, 0.5)
+
+[node name="Window1" type="CSGBox3D" parent="Building/Loading Wall" unique_id=1279767389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2, 1.9000001, -6.55)
+operation = 2
+use_collision = true
+size = Vector3(1.6, 1.8000001, 1.3000001)
+
+[node name="Window2" type="CSGBox3D" parent="Building/Loading Wall" unique_id=1299839500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10000005, 1.9, -6.6000004)
+operation = 2
+use_collision = true
+size = Vector3(1.6, 1.8000001, 1.3000001)
+
+[node name="Wall" type="CSGBox3D" parent="Building" unique_id=1223606178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 2.75, 0.35)
+use_collision = true
+size = Vector3(0.5, 5, 14.7)
+
+[node name="Floor2" parent="Building" unique_id=138865183 instance=ExtResource("2_choun")]
+transform = Transform3D(7, 0, 0, 0, 5, 0, 0, 0, 12, 0.6, 0.3, -4.0999994)
+
+[node name="ProtoController" parent="." unique_id=1965801076 instance=ExtResource("1_o5qli")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.7, 0.3, -3.3000002)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=868160311]
+transform = Transform3D(5.1619136e-08, 0.49999994, -0.8660254, -2.9802319e-08, 0.8660254, 0.49999994, 1, 0, 5.960465e-08, -8.9, 5.4, 0)
+
+[node name="Conveyors" type="Node3D" parent="." unique_id=1307601420]
+
+[node name="Conveyor3" parent="Conveyors" unique_id=1594178158 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.238, -5.1000004, 0.4, 7)
+constant_linear_velocity = Vector3(2, 0, 2)
+
+[node name="Conveyor2" parent="Conveyors" unique_id=55184369 instance=ExtResource("3_sugp2")]
+transform = Transform3D(5.5224, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 0.4, 7.1)
+constant_linear_velocity = Vector3(2, 0, 0)
+
+[node name="Conveyor" parent="Conveyors" unique_id=146857764 instance=ExtResource("3_sugp2")]
+transform = Transform3D(-5.2453663e-07, 0, -1.2, 0, 1, 0, 12, 0, -5.2453668e-08, -5.2, 0.4, 0.29999965)
+constant_linear_velocity = Vector3(0, 0, 2)
+
+[node name="Garbage Can" parent="." unique_id=173467272 instance=ExtResource("1_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3664699, 0.59973425, -5.4886518)
+
+[node name="Incinerator" parent="." unique_id=1175991371 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.2, 0.3, -0.2)
+
+[node name="Trash Bag" parent="." unique_id=867460440 instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 0.7, -3.6)
+
+[node name="Compost Area" parent="." unique_id=146587922 instance=ExtResource("7_o6xl0")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.0343013, 0.70000017, 3.9464483)
+
+[node name="Spawner" parent="." unique_id=1444740780 instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0149255, 1.5140133, -5.028333)
+
+[node name="Boundaries" type="StaticBody3D" parent="." unique_id=698338049]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundaries" unique_id=1329927412]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5.1000004, 7.500001)
+shape = SubResource("WorldBoundaryShape3D_choun")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Boundaries" unique_id=974938107]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -6.3, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_ya4ey")
+
+[node name="Recycling Bin" parent="." unique_id=1150361247 instance=ExtResource("9_85g3d")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.459, 0.8, -6)
+
+[node name="Timer" type="Timer" parent="." unique_id=672725432]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

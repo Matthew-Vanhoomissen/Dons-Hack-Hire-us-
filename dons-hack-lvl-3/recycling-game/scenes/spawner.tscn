@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dm21sccw6gi5h"]
+
+[ext_resource type="Script" uid="uid://cs70scq4bbek3" path="res://scripts/spawner.gd" id="1_2vbf6"]
+
+[node name="Spawner" type="Node3D" unique_id=1444740780]
+script = ExtResource("1_2vbf6")
+
+[node name="Timer" type="Timer" parent="." unique_id=2003001515]
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=557468204]
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

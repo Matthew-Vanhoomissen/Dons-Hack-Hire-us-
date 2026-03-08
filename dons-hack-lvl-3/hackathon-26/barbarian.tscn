@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://deypt0dat7067"]
+
+[ext_resource type="PackedScene" uid="uid://cn38bqvyrb2p4" path="res://hackathon-26/addons/KayKit_Adventurers_2.0_FREE/Characters/gltf/Barbarian.glb" id="1_ofhl6"]
+[ext_resource type="AnimationLibrary" uid="uid://bgynqlq0m8w1u" path="res://hackathon-26/addons/KayKit_Adventurers_2.0_FREE/Animations/gltf/Rig_Medium/Rig_Medium_General.glb" id="2_e5y4e"]
+[ext_resource type="AnimationLibrary" uid="uid://deo4u8y5ryvts" path="res://hackathon-26/addons/KayKit_Adventurers_2.0_FREE/Animations/gltf/Rig_Medium/Rig_Medium_MovementBasic.glb" id="3_kdp52"]
+
+[node name="Barbarian" unique_id=578607201 instance=ExtResource("1_ofhl6")]
+
+[node name="Skeleton3D" parent="Rig_Medium" parent_id_path=PackedInt32Array(1863776191) index="0" unique_id=1525208633]
+bones/1/position = Vector3(0, 0.50566393, 0)
+bones/4/rotation = Quaternion(-0.66496044, -0.3426384, -0.3717755, 0.5497359)
+bones/5/rotation = Quaternion(1.2911908e-08, -5.133277e-08, -0.56506604, 0.82504576)
+bones/6/rotation = Quaternion(7.250843e-09, 9.200791e-09, 0.026658095, 0.99964464)
+bones/6/scale = Vector3(0.99999994, 1, 1.0000001)
+bones/7/rotation = Quaternion(-0.09032972, 0.047568697, 0.49032795, 0.86553824)
+bones/8/rotation = Quaternion(1.6806126e-09, 1.6806124e-09, -0.7071068, 0.7071067)
+bones/10/rotation = Quaternion(-0.6488732, 0.37176114, 0.39684537, 0.53223205)
+bones/11/rotation = Quaternion(1.9005892e-08, 5.837329e-08, 0.5037367, 0.8638574)
+bones/12/rotation = Quaternion(7.300499e-09, -7.3388096e-09, -0.0266581, 0.99964464)
+bones/12/scale = Vector3(1.0000001, 1, 1)
+bones/13/rotation = Quaternion(-0.019008981, -0.092694566, -0.4567224, 0.8845626)
+bones/14/rotation = Quaternion(-2.2706748e-09, 7.539029e-09, 0.7071068, 0.7071067)
+bones/15/position = Vector3(0.17094505, 0.1135872, 1.7855621e-08)
+bones/15/rotation = Quaternion(0.95066243, 0.023711681, 0.025923882, 0.3082317)
+bones/16/rotation = Quaternion(0.60879123, 5.1442058e-08, -4.2241257e-07, 0.7933305)
+bones/17/rotation = Quaternion(-0.36361778, -0.047520626, 0.017646853, 0.93016803)
+bones/18/rotation = Quaternion(2.6600152e-05, 0.9204544, -0.39085022, -5.9030026e-06)
+bones/19/position = Vector3(-0.17094505, 0.1135872, 1.7855621e-08)
+bones/19/rotation = Quaternion(0.90056896, -0.02885506, -0.04152075, 0.43176284)
+bones/20/rotation = Quaternion(0.8142697, -4.171492e-08, 5.675865e-07, 0.5804867)
+bones/21/rotation = Quaternion(-0.5938109, 0.0506598, -0.044415507, 0.8017789)
+bones/22/rotation = Quaternion(6.790784e-05, 0.92017806, -0.39150006, -1.5292379e-05)
+
+[node name="Barbarian_Head" parent="Rig_Medium/Skeleton3D" index="4" unique_id=1646056843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037225783, -0.003701806, 0.0024962425)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=1001499969]
+libraries/Rig_Medium_General = ExtResource("2_e5y4e")
+libraries/Rig_Medium_MovementBasic = ExtResource("3_kdp52")
+autoplay = &"Rig_Medium_MovementBasic/Jump_Land"

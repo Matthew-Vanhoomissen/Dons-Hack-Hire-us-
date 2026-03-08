@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dftbc3kksxrur"]
+
+[ext_resource type="Theme" uid="uid://0vx2whsc5y8c" path="res://Scenes/CustomTheme.tres" id="1_twnyg"]
+[ext_resource type="Script" uid="uid://duguuspmc8q20" path="res://Scripts/title_screen.gd" id="2_55kwv"]
+[ext_resource type="Texture2D" uid="uid://5dx618mhpyln" path="res://addons/forestScreen.jpg" id="3_12m1t"]
+[ext_resource type="Texture2D" uid="uid://c1apvp7lf62t4" path="res://addons/Logo.png" id="4_6vd4x"]
+
+[node name="TitleScreen" type="Control" unique_id=750057610]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_twnyg")
+script = ExtResource("2_55kwv")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1105284879]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_12m1t")
+
+[node name="MainMenu" type="VBoxContainer" parent="." unique_id=141755879]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1450.0
+offset_top = 450.0
+offset_right = -1450.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.8175663, 2.331203)
+theme_override_constants/separation = 30
+
+[node name="Logo" type="TextureRect" parent="MainMenu" unique_id=1497780409]
+layout_mode = 2
+texture = ExtResource("4_6vd4x")
+stretch_mode = 3
+
+[node name="Menu Options" type="VBoxContainer" parent="MainMenu" unique_id=1218171503]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="StartButton" type="Button" parent="MainMenu/Menu Options" unique_id=1927657803]
+layout_mode = 2
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="MainMenu/Menu Options" unique_id=1840183757]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="OptionsButton" type="Button" parent="MainMenu/Menu Options" unique_id=74696457]
+layout_mode = 2
+text = "Options"
+
+[connection signal="pressed" from="MainMenu/Menu Options/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenu/Menu Options/QuitButton" to="." method="_on_quit_button_pressed"]

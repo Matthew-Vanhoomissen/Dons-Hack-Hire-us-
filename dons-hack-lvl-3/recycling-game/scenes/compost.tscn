@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dgr2uaachy552"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_82ykv"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p18li"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="Compost" type="RigidBody3D" unique_id=286101331 groups=["compost"]]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+mass = 0.01
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1497714782]
+shape = SubResource("BoxShape3D_82ykv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=150163029]
+mesh = SubResource("BoxMesh_p18li")

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Trash Collection
+* source:	https://sketchfab.com/3d-models/trash-collection-497049ca18c0414c887e638b067f38ef
+* author:	TK (https://sketchfab.com/ttkurok)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Trash Collection" (https://sketchfab.com/3d-models/trash-collection-497049ca18c0414c887e638b067f38ef) by TK (https://sketchfab.com/ttkurok) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

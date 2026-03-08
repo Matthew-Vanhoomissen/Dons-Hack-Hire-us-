@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cmlblqoxcguwu"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_tsjab"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sjcjh"]
+radius = 0.3
+height = 0.65000004
+
+[node name="Recycling" type="RigidBody3D" unique_id=805725877 groups=["recycling"]]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+mass = 0.01
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=433314570]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("PrismMesh_tsjab")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=622458924]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.1, 0)
+shape = SubResource("CapsuleShape3D_sjcjh")

@@ -14,7 +14,7 @@ height = 1.8
 [node name="ProtoController" type="CharacterBody3D" unique_id=174821063]
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=791174884]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09362662, 0.9, 0)
 material_override = SubResource("StandardMaterial3D_iof21")
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_ucva2")

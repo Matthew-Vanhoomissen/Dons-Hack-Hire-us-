@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d25s1l1xofpr1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5l37q"]
+radius = 0.2
+height = 0.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2hmw1"]
+radius = 0.2
+height = 0.53828126
+
+[node name="Trash Bag" type="RigidBody3D" unique_id=867460440 groups=["trash_bag"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=360157216 groups=["trash_bag"]]
+mesh = SubResource("CapsuleMesh_5l37q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=391409972 groups=["trash_bag"]]
+shape = SubResource("CapsuleShape3D_2hmw1")
