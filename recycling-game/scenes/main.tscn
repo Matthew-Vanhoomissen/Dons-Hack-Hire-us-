@@ -7,13 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://deof13xjbsgip" path="res://scenes/wall.tscn" id="3_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://brq2iur3jfa0k" path="res://scenes/conveyor.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ccmtur2gal4hn" path="res://scenes/incinerator.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://d25s1l1xofpr1" path="res://scenes/trash_bag.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dfcvsd814ocur" path="res://scenes/compost_area.tscn" id="7_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://dgr2uaachy552" path="res://scenes/compost.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://u3pxshhejqbq" path="res://scenes/recycling_bin.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dm21sccw6gi5h" path="res://scenes/spawner.tscn" id="10_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://c4p3oemc0vj7j" path="res://scenes/door_wall.tscn" id="12_trceg"]
-[ext_resource type="PackedScene" uid="uid://cmlblqoxcguwu" path="res://scenes/recycling.tscn" id="14_a8y0u"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_choun"]
 
@@ -51,9 +48,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3664699, 0.59973425, -5.48
 
 [node name="Incinerator" parent="." unique_id=1175991371 instance=ExtResource("5_tbgi4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.2, 0.3, -0.2)
-
-[node name="Trash Bag" parent="." unique_id=867460440 instance=ExtResource("6_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 0.7, -3.6)
 
 [node name="Compost Area" parent="." unique_id=146587922 instance=ExtResource("7_o6xl0")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.0343013, 0.70000017, 3.9464483)
@@ -173,15 +167,6 @@ transform = Transform3D(3.6, 0, 0, 0, 2, 0, 0, 0, 2, -2.6, 0.3, -5.6000004)
 
 [node name="Wall2" parent="." unique_id=1979723473 instance=ExtResource("3_eb6dy")]
 transform = Transform3D(1.2, 0, 0, 0, 2, 0, 0, 0, 2, 1.7, 0.3, -5.6)
-
-[node name="Compost" parent="." unique_id=286101331 instance=ExtResource("8_tipki")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.5, 0.4, -1.7)
-
-[node name="Recycling" parent="." unique_id=805725877 instance=ExtResource("14_a8y0u")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.5, 0.3, 0.2)
-
-[node name="Recycling2" parent="." unique_id=2108054652 instance=ExtResource("14_a8y0u")]
-transform = Transform3D(1.3374797e-15, 3.059797e-08, -0.7, 0.7, -3.059797e-08, 0, -3.059797e-08, -0.7, -3.059797e-08, -3.5000002, 0.4, -2.9)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1659728946]
 
