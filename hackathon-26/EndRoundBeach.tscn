@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://jjd4te2o2r5x"]
+
+[ext_resource type="Theme" uid="uid://0vx2whsc5y8c" path="res://Scenes/CustomTheme.tres" id="1_g6lob"]
+
+[node name="Control" type="Control" unique_id=1782973163]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="VBoxContainer" parent="." unique_id=1921790951]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5103.0
+offset_top = 522.0
+offset_right = -5103.0
+offset_bottom = 522.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.9851248, 5.2800403)
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="MainMenu" unique_id=2142370109]
+layout_mode = 2
+theme = ExtResource("1_g6lob")
+text = "ROUND OVER"
+horizontal_alignment = 1
+
+[node name="Menu Options" type="VBoxContainer" parent="MainMenu" unique_id=1328887636]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="StartButton" type="Button" parent="MainMenu/Menu Options" unique_id=349337902]
+layout_mode = 2
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="MainMenu/Menu Options" unique_id=139783056]
+layout_mode = 2
+text = "Quit
+"
